@@ -16,7 +16,10 @@ The commands should be provided in a separate file, which has to be given as an 
 
 ### HOW TO RUN
 > python3 -m geektrust <file_name_with_path>
-eg.: python3 -m geektrust test_file.txt
+
+### HOW TO TEST THE CODE
+A sample test file is available along with the source code. This contains all the sample use cases given in the problem statement, along with ADD_SPOUSE command used with one success and with one failure case. To run this, enter the command-
+> python3 -m geektrust test_file.txt
 
 
 ### OUTPUT
