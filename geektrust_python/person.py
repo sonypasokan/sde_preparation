@@ -25,16 +25,16 @@ class Person(object):
             siblings_names.append(child)
         return siblings_names
     
-    def get_parents_siblings(self, parent_type, sibling_gender):
+    def get_parents_siblings(self, parent_gender, sibling_gender):
         """Function that gets siblings list for the given parent type.
-        @parent_type : Type of parent. For mother, Female class has to be provided,
+        @parent_gender : Type of parent. For mother, Female class has to be provided,
             whereas for father Male class needs to be provided.
         @sibling_gender : Gender of the sibling has to be provided as 
             Male class or Female class.
         """
         if not self.mother:
             return
-        if isinstance(self.mother, parent_type):
+        if isinstance(self.mother, parent_gender):
             parent = self.mother
         else:
             parent = self.mother.spouse

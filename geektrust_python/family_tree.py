@@ -136,13 +136,13 @@ class FamilyTree:
         elif relationship == "siblings":
             relatives = person.get_siblings()
         elif relationship == "paternal-uncle":
-            relatives = person.get_parents_siblings(parent_type=Male, sibling_gender=Male)
+            relatives = person.get_parents_siblings(parent_gender=Male, sibling_gender=Male)
         elif relationship == "maternal-uncle":
-            relatives = person.get_parents_siblings(parent_type=Female, sibling_gender=Male)
+            relatives = person.get_parents_siblings(parent_gender=Female, sibling_gender=Male)
         elif relationship == "paternal-aunt":
-            relatives = person.get_parents_siblings(parent_type=Male, sibling_gender=Female)
+            relatives = person.get_parents_siblings(parent_gender=Male, sibling_gender=Female)
         elif relationship == "maternal-aunt":
-            relatives = person.get_parents_siblings(parent_type=Female, sibling_gender=Female)
+            relatives = person.get_parents_siblings(parent_gender=Female, sibling_gender=Female)
         elif relationship == "sister-in-law":
             relatives = person.get_siblings_in_law(Female)
         elif relationship == "brother-in-law":
