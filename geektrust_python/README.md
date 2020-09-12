@@ -1,9 +1,7 @@
 
-This project establishes the family tree of King Shan in Lengaburu family.
-
-HOW TO RUN:
-> python3 -m geektrust <file_name_with_path>
-eg.: python3 -m geektrust test_file.txt
+PROJECT: Lengaburu Family Tree
+Existing family members are already setup in the program. The program can accept more family members and get the relationship.
+This can be done using specific commands which are mentioned in below section "Commands Accepted".
 
 
 COMMANDS ACCEPTED:
@@ -12,10 +10,15 @@ COMMANDS ACCEPTED:
 3. ADD_SPOUSE       : Provide existing person's name and spouse's name.
 
 
+HOW TO RUN:
+> python3 -m geektrust <file_name_with_path>
+eg.: python3 -m geektrust test_file.txt
+
+
 OUTPUT:
 Output will be printed in the console for every input command in the given input file.
 
-NOTE:
+Note:
 Existing family members with relationship is already added to the program.
 For this, there will be no output messgae returned from the program.
 This means, only for the inputs that are received through the input file, output will be printed in the console.
