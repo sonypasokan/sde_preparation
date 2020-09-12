@@ -70,6 +70,9 @@ class FamilyTree:
         if not person:
             print("PERSON_NOT_FOUND", spouse_name)
             return
+        if person.spouse:
+            print("SPOUSE_ADDITION_FAILED")
+            return
         if isinstance(person, Male):
             spouse = self._create_child(spouse_name, "female")
         else:
@@ -115,6 +118,9 @@ class FamilyTree:
             relatives = person.get_siblings_in_law(Female)
         elif relationship == "brother-in-law":
             relatives = person.get_siblings_in_law(Male)
+        else:
+            print("RELATIONSHIP_NOT_FOUND")
+            return
         if not relatives:
             print("NONE")
             return
