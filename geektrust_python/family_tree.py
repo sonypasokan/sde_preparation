@@ -19,6 +19,10 @@ class FamilyTree:
                 child_added = self.add_child(keywords[1], keywords[2], keywords[3])
                 if child_added:
                     print("CHILD_ADDITION_SUCCEEDED")
+            elif command == "add_spouse" and len(keywords) == 3:
+                spouse_added = self.add_spouse(keywords[1], keywords[2])
+                if spouse_added:
+                    print("SPOUSE_ADDITION_SUCCEEDED")
             else:
                 print("WRONG_OPERATION")
         
@@ -72,6 +76,7 @@ class FamilyTree:
             spouse = self._create_child(spouse_name, "male")
         person.spouse = spouse
         spouse.spouse = person
+        return True
     
     def add_child(self, mother_name, child_name, child_gender):
         child = self._create_child(child_name, child_gender)
