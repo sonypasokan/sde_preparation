@@ -10,6 +10,27 @@ class Person(object):
         self.spouse = None
         self.gender = None
     
+    def find_person(self, person_name_to_find, spouse_checked=False):
+        """Private function that finds a person if name of the person is given.
+        @person_name_to_find : Person node which is being searched.
+        @spouse_checked : Boolean flag that checks if the spouse of the current_person is checked or not.
+            This flag is used to ensure that the program does not run into infinite loop
+            by checking the spouse.
+        """
+        if self.name == person_name_to_find:
+            return self
+        if self.spouse and not spouse_checked:
+            person_found = self.spouse.find_person(person_name_to_find, True)
+            if person_found:
+                return person_found
+        if isinstance(self, Male): # All possible cases of male is over.
+            return
+        for child in self.children:
+            person_found = child.find_person(person_name_to_find)
+            if not person_found:
+                continue
+            return person_found
+    
     def get_siblings(self, sibling_gender=None):
         """Function that will return the siblings list based on the gender given.
         @sibling_gender : Gender of the sibling. If not provided, then all siblings irrespective

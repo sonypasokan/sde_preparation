@@ -86,7 +86,7 @@ class FamilyTree:
         @person_name : Existing person's name.
         @spouse_name : Spouse who has to be added.
         """
-        person = self._find_person(self.family_root, person_name)
+        person = self.family_root.find_person(person_name)
         if not person:
             print("PERSON_NOT_FOUND", spouse_name)
             return
@@ -108,7 +108,7 @@ class FamilyTree:
         @child_gender : Gender of the child. Accepted values are male and female (case insensitive).
         """
         child = self._create_child(child_name, child_gender)
-        mother = self._find_person(self.family_root, mother_name)
+        mother = self.family_root.find_person(mother_name)
         if not mother: # Person does not exist in the family
             print("PERSON_NOT_FOUND")
             return
@@ -124,7 +124,7 @@ class FamilyTree:
         @person_name : Name of the person.
         @relationship : Expected relationship.
         """
-        person = self._find_person(self.family_root, person_name)
+        person = self.family_root.find_person(person_name)
         if not person: # Given person does not exist in the family.
             print("PERSON_NOT_FOUND")
             return
