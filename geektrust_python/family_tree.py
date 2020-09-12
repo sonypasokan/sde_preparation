@@ -93,7 +93,7 @@ class FamilyTree:
         if person.spouse:
             print("SPOUSE_ADDITION_FAILED")
             return
-        if isinstance(person, Male):
+        if person.gender == "male":
             spouse = self._create_child(spouse_name, "female")
         else:
             spouse = self._create_child(spouse_name, "male")
@@ -112,7 +112,7 @@ class FamilyTree:
         if not mother: # Person does not exist in the family
             print("PERSON_NOT_FOUND")
             return
-        if not isinstance(mother, Female): # Person exists in the family, but is a male.
+        if mother.gender != "female": # Person exists in the family, but is a male.
             print("CHILD_ADDITION_FAILED")
             return
         child.mother = mother
@@ -130,23 +130,23 @@ class FamilyTree:
             return
         relationship = relationship.lower()
         if relationship == "son":
-            relatives = person.get_child_by_gender(Male)
+            relatives = person.get_child_by_gender("male")
         elif relationship == "daughter":
-            relatives = person.get_child_by_gender(Female)
+            relatives = person.get_child_by_gender("female")
         elif relationship == "siblings":
             relatives = person.get_siblings()
         elif relationship == "paternal-uncle":
-            relatives = person.get_parents_siblings(parent_gender=Male, sibling_gender=Male)
+            relatives = person.get_parents_siblings(parent_gender="male", sibling_gender="male")
         elif relationship == "maternal-uncle":
-            relatives = person.get_parents_siblings(parent_gender=Female, sibling_gender=Male)
+            relatives = person.get_parents_siblings(parent_gender="female", sibling_gender="male")
         elif relationship == "paternal-aunt":
-            relatives = person.get_parents_siblings(parent_gender=Male, sibling_gender=Female)
+            relatives = person.get_parents_siblings(parent_gender="male", sibling_gender="female")
         elif relationship == "maternal-aunt":
-            relatives = person.get_parents_siblings(parent_gender=Female, sibling_gender=Female)
+            relatives = person.get_parents_siblings(parent_gender="female", sibling_gender="female")
         elif relationship == "sister-in-law":
-            relatives = person.get_siblings_in_law(Female)
+            relatives = person.get_siblings_in_law("female")
         elif relationship == "brother-in-law":
-            relatives = person.get_siblings_in_law(Male)
+            relatives = person.get_siblings_in_law("male")
         else: # This relationship is not established.
             print("RELATIONSHIP_NOT_FOUND")
             return
@@ -169,7 +169,7 @@ class FamilyTree:
             person_found = self._find_person(current_person.spouse, person_name_to_find, True)
             if person_found:
                 return person_found
-        if isinstance(current_person, Male): # All possible cases of male is over.
+        if current_person.gender == "male": # All possible cases of male is over.
             return
         for child in current_person.children:
             person_found = self._find_person(child, person_name_to_find)

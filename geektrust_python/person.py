@@ -8,6 +8,7 @@ class Person(object):
         self.name = name
         self.mother = None
         self.spouse = None
+        self.gender = None
     
     def get_siblings(self, sibling_gender=None):
         """Function that will return the siblings list based on the gender given.
@@ -20,7 +21,7 @@ class Person(object):
         for child in self.mother.children:
             if self == child: # Current object is excluded.
                 continue
-            if sibling_gender != None and not isinstance(child, sibling_gender):
+            if sibling_gender != None and child.gender != sibling_gender:
                 continue
             siblings_names.append(child)
         return siblings_names
@@ -34,7 +35,7 @@ class Person(object):
         """
         if not self.mother:
             return
-        if isinstance(self.mother, parent_gender):
+        if self.mother.gender == parent_gender:
             parent = self.mother
         else:
             parent = self.mother.spouse
@@ -66,6 +67,7 @@ class Male(Person):
         @name : Name of the person.
         """
         super().__init__(name)
+        self.gender = "male"
     
     def get_child_by_gender(self, child_gender):
         """Function to get the child by gender.
@@ -84,6 +86,7 @@ class Female(Person):
         @name : Name of the person which is passed to the parent class.
         """
         super().__init__(name)
+        self.gender = "female"
         self.children = list()
     
     def add_child(self, child):
@@ -98,6 +101,6 @@ class Female(Person):
         """
         kids_of_gender = list()
         for child in self.children:
-            if isinstance(child, child_gender):
+            if child.gender == child_gender:
                 kids_of_gender.append(child.name)
         return kids_of_gender
