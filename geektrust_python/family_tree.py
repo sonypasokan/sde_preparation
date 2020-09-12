@@ -86,7 +86,7 @@ class FamilyTree:
         @person_name : Existing person's name.
         @spouse_name : Spouse who has to be added.
         """
-        person = self._find_person(self.family_root, person_name)
+        person = self.family_root.find_person(person_name)
         if not person:
             print("PERSON_NOT_FOUND", spouse_name)
             return
@@ -108,7 +108,7 @@ class FamilyTree:
         @child_gender : Gender of the child. Accepted values are male and female (case insensitive).
         """
         child = self._create_child(child_name, child_gender)
-        mother = self._find_person(self.family_root, mother_name)
+        mother = self.family_root.find_person(mother_name)
         if not mother: # Person does not exist in the family
             print("PERSON_NOT_FOUND")
             return
@@ -124,7 +124,7 @@ class FamilyTree:
         @person_name : Name of the person.
         @relationship : Expected relationship.
         """
-        person = self._find_person(self.family_root, person_name)
+        person = self.family_root.find_person(person_name)
         if not person: # Given person does not exist in the family.
             print("PERSON_NOT_FOUND")
             return
@@ -154,28 +154,7 @@ class FamilyTree:
             print("NONE")
             return
         print(" ".join([relative.name for relative in relatives]))
-    
-    def _find_person(self, current_person, person_name_to_find, spouse_checked=False):
-        """Private function that finds a person if name of the person is given.
-        @current_person : From which person node, the execution to start.
-        @person_name_to_find : Person node which is being searched.
-        @spouse_checked : Boolean flag that checks if the spouse of the current_person is checked or not.
-            This flag is used to ensure that the program does not run into infinite loop
-            by checking the spouse.
-        """
-        if current_person.name == person_name_to_find:
-            return current_person
-        if current_person.spouse and not spouse_checked:
-            person_found = self._find_person(current_person.spouse, person_name_to_find, True)
-            if person_found:
-                return person_found
-        if isinstance(current_person, Male): # All possible cases of male is over.
-            return
-        for child in current_person.children:
-            person_found = self._find_person(child, person_name_to_find)
-            if not person_found:
-                continue
-            return person_found    
+      
     
     def _create_child(self, child_name, child_gender):
         """This function creates the child node.
