@@ -1,0 +1,9 @@
+{
+  "tree": {
+    "nodes": [
+      {"id": "1", "left": "2", "right": null, "value": 1},
+      {"id": "2", "left": null, "right": null, "value": 2}
+    ],
+    "root": "1"
+  }
+}
