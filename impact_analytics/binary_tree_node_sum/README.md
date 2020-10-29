@@ -16,8 +16,8 @@ To know how to run the script, call
 > python3 main_binary_tree_node_sum.py -f input_1.json
 
 ## Example to input a JSON string
->python3 main_binary_tree_node_sum.py -s "{\"tree\":{\"nodes\":[{\"id\":\"1\",\"left\":\"2\",\"right\":null,\"value\":1},{\"id\":\"2\",\"left\":null,\"right\":null,\"value\":2}],\"root\":\"1\"}}"
+>python3 main_binary_tree_node_sum.py -s "{\\"tree\\":{\\"nodes\\":[{\\"id\\":\\"1\\",\\"left\\":\\"2\\",\\"right\\":null,\\"value\\":1},{\\"id\\":\\"2\\",\\"left\\":null,\\"right\\":null,\\"value\\":2}],\\"root\\":\\"1\\"}}"
 
-# Function that calculates Sum of depths of Node
+# Function that calculates Sum of depths of all nodes
 The function that calculates the Sum of depths of nodes is present in binary_tree_operation/BinaryTreeSum class.
 Function name: BinaryTreeNodeDepthSum
