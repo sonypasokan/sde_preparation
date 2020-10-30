@@ -21,3 +21,6 @@ To know how to run the script, call
 # Function that calculates Sum of depths of all nodes
 The function that calculates the Sum of depths of nodes is present in binary_tree_operation/BinaryTreeSum class.
 Function name: BinaryTreeNodeDepthSum
+
+# Python Version
+3.8.5
