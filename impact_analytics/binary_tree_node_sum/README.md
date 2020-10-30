@@ -4,6 +4,9 @@ Find the sum of depths of all nodes of a Binary Tree
 # Main file
 Main file is: main_binary_tree_node_sum.py
 
+# Python Version
+3.8.5
+
 # How to run
 To know how to run the script, call
 > python3 main_binary_tree_node_sum.py -h
@@ -21,6 +24,3 @@ To know how to run the script, call
 # Function that calculates Sum of depths of all nodes
 The function that calculates the Sum of depths of nodes is present in binary_tree_operation/BinaryTreeSum class.
 Function name: BinaryTreeNodeDepthSum
-
-# Python Version
-3.8.5
